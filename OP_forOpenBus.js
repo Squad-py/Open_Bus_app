@@ -27,9 +27,9 @@ app.post("/start-payment", async (req, res) => {
     const receivingWalletUrl = normalizeUrl(destinatario);
 
       const client = await createAuthenticatedClient({//wallet que siemrpe recibe
-        walletAddressUrl: "https://ilp.interledger-test.dev/6cf160fe",
+        walletAddressUrl: "https://ilp.interledger-test.dev/cmov",
         privateKey: fs.readFileSync("private.key", "utf8"),
-        keyId: "e0a1e5dd-10c6-4714-99b5-822ee1f240fd",
+        keyId: "b66b9b81-e448-46ba-8416-6705bc1017c5",
       });
 
       const sendingWalletAddress = await client.walletAddress.get({

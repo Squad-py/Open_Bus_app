@@ -194,34 +194,9 @@
             --transition: all 0.3s ease;
         }
 
-        /* Estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
 
-        /* Contenedor principal */
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
+
 
         /* Tarjeta de contenido */
         .card {
@@ -413,7 +388,7 @@
             
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcion" placeholder="Descripción del pago">
+                <input type="text" id="descripcion" placeholder="Descripción del pago" value="RECARGA DE TARJETA DE PREPAGO" disabled>
             </div>
             
             <button id="startPayment">

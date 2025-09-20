@@ -39,7 +39,7 @@ The technology stack is as follows:
 
 ## What functions are essential? ❕
 The key functions are:
-**- Online payment system: For prepaid card recharges.**
+- Online payment system: For prepaid card recharges.
 - Real-time passenger counting: To determine bus occupancy.
 - Geolocation and maps: To display bus locations.
 - Data management dashboard: For analysis and decision-making by authorities.

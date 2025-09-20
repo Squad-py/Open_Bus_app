@@ -161,7 +161,7 @@ await fetch("https://7z1qwqzz-4000.usw3.devtunnels.ms/card/recharge", {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({cardId:"5232373", amount : ultimoMontoTransferido/100}),
+    body: JSON.stringify({cardId:"12345678", amount : ultimoMontoTransferido/100}),
 });
     res.json({ success: true, outgoingPayment });
   } 

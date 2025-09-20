@@ -51,3 +51,24 @@ Team responsibilities are divided as follows:
 - Kevin Gael Valle Martinez: Developer.
 - Carlos Alejandro Galindo Islas: Database Manager (DB Manager).
 - Juan Manuel Ibarra Olvera: Developer.
+
+## How to run locally?
+Execute
+```
+      git clone https://github.com/Squad-py/Open_Bus_app.git
+      cd Open_Bus_app/
+      npm i
+      node OP_forOpenBus.js
+```
+
+Open other terminal and then
+```
+      python -m venv venv
+      .\venv\Scripts\activate
+      pip install -r requirements.txt
+      python app.py
+```
+
+Finally open in localhost (port 5000)
+
+

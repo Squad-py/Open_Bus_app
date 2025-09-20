@@ -127,7 +127,6 @@ app.post("/start-payment", async (req, res) => {
 // Endpoint para continuar después de aceptar el pago
 app.post("/continue-payment", async (req, res) => {
   try {
-    console.log("tu putisima madre")
     const { incomingPaymentId } = req.body;
     if (!incomingPaymentId || !pendingPayments[incomingPaymentId])
       return res.status(400).json({ error: "Pago no encontrado" });

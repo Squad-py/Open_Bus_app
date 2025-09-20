@@ -13,7 +13,7 @@ The public transportation system in Aguascalientes is inefficient due to the lac
 
 ## What technology will you use? 💻
 The project is based on a combination of modern technologies:
-Payments: OpenPayments Interledger technology is integrated to enable fast, contactless payments.
+- Payments: OpenPayments Interledger technology is integrated to enable fast, contactless payments.
 - Artificial Intelligence: Python, OpenCV, and YOLOv5 are used for computer vision processing and real-time passenger counting.
 - Backend: Flask and Node.js are used to develop the REST API.
 - Database: PostgreSQL is used for data management.

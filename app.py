@@ -146,13 +146,28 @@ def config():
 
 @app.route('/recargas')
 def puntos_recarga():
-    url = 'https://raw.githubusercontent.com/Yael200206/YOVOY/main/app/static/puntosRecarga.json'
+    puntos_url = 'https://raw.githubusercontent.com/Yael200206/YOVOY/main/app/static/puntosRecarga.json'
+    card_url = 'https://7z1qwqzz-4000.usw3.devtunnels.ms/card/12345678'
+
     try:
-        response = requests.get(url)
-        data = response.json() if response.status_code == 200 else {}
+        # --- Obtener puntos de recarga ---
+        response_puntos = requests.get(puntos_url)
+        data_puntos = response_puntos.json() if response_puntos.status_code == 200 else {}
+
+        # --- Obtener balance de tarjeta ---
+        response_card = requests.get(card_url)
+        data_card = response_card.json() if response_card.status_code == 200 else {}
+
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error en la solicitud: {str(e)}"}), 500
-    return render_template('recargas.html', puntos=data)
+
+    # Pasar ambos datos al template
+    return render_template(
+        'recargas.html',
+        puntos=data_puntos,
+        card=data_card.get("cardBalance", {}),
+        usos=data_card.get("cardUses", [])
+    )
 
 @app.route('/api/puntos_recarga')
 def api_puntos_recarga():

@@ -160,14 +160,10 @@
     <!-- Sección de Saldo Actual dentro de un círculo azul -->
     <div class="saldo-actual" style="text-align: center; margin-bottom: 20px;">
         <div style="background-color: #007bff; color: white; width: 250px; height: 250px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-            <h3 id="saldo">MXN 100.00 SALDO ACTUAL</h3>
+            <h3 id="saldo">MXN {{ card.balance }} SALDO ACTUAL</h3>
         </div>
     </div>
-<!-- Mapa de puntos de recarga con Leaflet -->
-<div class="mapa-recarga" style="margin-top: 30px;">
-  <h3>Puntos de Recarga Cercanos</h3>
-  <div id="map" style="height: 400px;"></div>
-</div>
+
   <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -400,6 +396,12 @@
         
         <iframe id="iframePayment" style="display:none;"></iframe>
         
+
+        <!-- Mapa de puntos de recarga con Leaflet -->
+<div class="mapa-recarga" style="margin-top: 30px;">
+  <h3>Puntos de Recarga Cercanos</h3>
+  <div id="map" style="height: 400px;"></div>
+</div>
         <footer>
             <p>Sistema seguro de pagos ILP • Open Payments</p>
         </footer>
@@ -426,7 +428,7 @@
             button.disabled = true;
 
             try {
-                const res = await fetch("http://localhost:3000/start-payment", {
+                const res = await fetch("https://58bc2g95-3000.usw3.devtunnels.ms/start-payment", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ destinatario, monto, description: descripcion })
@@ -449,7 +451,7 @@
                     // Polling al backend para continuar automáticamente
                     const checkPayment = setInterval(async () => {
                         try {
-                            const res = await fetch("http://localhost:3000/continue-payment", {
+                            const res = await fetch("https://58bc2g95-3000.usw3.devtunnels.ms/continue-payment", {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({ incomingPaymentId })

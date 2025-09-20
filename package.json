@@ -1,0 +1,25 @@
+{
+  "name": "open_bus_app",
+  "version": "1.0.0",
+  "main": "OP_forOpenBus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squad-py/Open_Bus_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Squad-py/Open_Bus_app/issues"
+  },
+  "homepage": "https://github.com/Squad-py/Open_Bus_app#readme",
+  "description": "",
+  "dependencies": {
+    "@interledger/open-payments": "^7.1.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

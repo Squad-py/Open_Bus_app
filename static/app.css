@@ -1,0 +1,444 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 4rem;
+
+  /*========== Colors - Modificado a rojos y morados ==========*/
+  --first-color: #b300ff;           /* Morado principal */
+  --first-color-alt: #6C3483;       /* Morado oscuro */
+  --second-color: #E74C3C;          /* Rojo principal */
+  --second-color-alt: #CB4335;      /* Rojo oscuro */
+  --title-color: #2C3E50;
+  --text-color: #34495E;
+  --body-color: #F9EBEA;            /* Fondo rojo muy claro */
+  --container-color: #FFFFFF;
+  --menu-border-color: #8E44AD;     /* Morado para bordes */
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Open Sans', sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .625rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  background-image: linear-gradient(to top, #ff8cf7, #ff9046); /* Degradado rojo-morado */
+  color: var(--text-color);
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.log {
+  width: 200px;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 0rem 0 0rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  margin-top: 20;
+  max-width: 968px;
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+/*=============== LOADER ===============*/
+.centra {
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--first-color); /* Cambiado a morado */
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--container-color);
+  z-index: var(--z-fixed);
+  transition: .4s;
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__img {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.nav__logo {
+  color: var(--first-color); /* Cambiado a morado */
+  font-weight: 600;
+}
+
+/* Para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    box-shadow: 0 -1px 12px rgba(142, 68, 173, 0.15); /* Sombra morada */
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: .4s;
+    border: 2px solid var(--menu-border-color); /* Borde morado */
+  }
+}
+
+.nav__list, 
+.nav__link {
+  display: flex;
+}
+
+.nav__link {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.nav__list {
+  justify-content: space-around;
+}
+
+.nav__name {
+  font-size: var(--tiny-font-size);
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+}
+
+/* Botones de nav menu */
+.active-link {
+  position: relative;
+  color: var(--first-color); /* Morado */
+  transition: .3s;
+}
+
+/* Efecto hover para enlaces */
+.nav__link:hover {
+  color: var(--second-color); /* Rojo en hover */
+}
+
+/* bg header */
+.scroll-header {
+  box-shadow: 0 1px 12px rgba(142, 68, 173, 0.15); /* Sombra morada */
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__list {
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+  
+  .section {
+    padding: 7rem 0 2rem;
+  }
+  
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  
+  .nav__img {
+    display: none;
+  }
+  
+  .nav__icon {
+    display: none;
+  }
+  
+  .nav__name {
+    font-size: var(--normal-font-size);
+  }
+  
+  .item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Indicador de enlace activo */
+  .active-link::before {
+    content: '';
+    position: absolute;
+    bottom: -.75rem;
+    width: 4px;
+    height: 4px;
+    background-color: var(--first-color); /* Morado */
+    border-radius: 50%;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============ CONTENIDO PRINCIPAL ====================== */
+/* Estilos específicos para la sección de avisos */
+.avisos-list {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+.avisos-list li {
+  margin: 5px 0;
+  font-weight: bold;
+  color: var(--first-color); /* Morado */
+}
+
+h1 {
+  text-align: center; 
+  color: var(--first-color); /* Morado */
+}
+
+/* Estilos específicos para la sección de concursos */
+.concursos-list {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+.concursos-list li {
+  margin: 5px 0;
+  font-weight: bold;
+  color: var(--second-color); /* Rojo */
+}
+
+.Avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--first-color); /* Borde morado */
+}
+
+.usuario {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.usuario strong {
+  font-weight: bold;
+  color: var(--first-color); /* Morado */
+  width: 100vh;
+}
+
+#miDiv {
+  height: 25%;
+  margin-bottom: 1rem;
+}
+
+.div-lado-a-lado {
+  width: 100%;
+  background-color: var(--first-color); /* Morado */
+  height: 2px;
+}
+
+.div-lado-a-ladoN {
+  width: 100%;
+  background-color: #000000;
+  height: 2px;
+}
+
+/* ============ FOOTER ====================== */
+footer {
+  background-color: var(--first-color); /* Fondo morado */
+  color: #fff;
+  padding: 50px 0;
+}
+
+.footer h2 {
+  margin-bottom: 20px;
+}
+
+.social-links {
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: #fff;
+  color: var(--first-color); /* Morado */
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--second-color); /* Rojo en hover */
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .social-links a {
+    font-size: 16px;
+  }
+}
